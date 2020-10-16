@@ -1,210 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <data>
 
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".Views.AddAddressActivity">
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ViewModels.AddAddressActivityViewModel" />
+    </data>
 
-
-
-
-    <include
-        android:id="@+id/top_bar"
-        layout="@layout/layout_top_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </include>
-
-
-
-    <ScrollView
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/zero"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_bar">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".Views.AddAddressActivity">
+
+        <include
+            android:id="@+id/top_bar"
+            layout="@layout/layout_top_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </include>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:paddingBottom="@dimen/ten"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/zero"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar">
 
-            <Spinner
-                android:id="@+id/city_spinner"
-                android:layout_width="@dimen/hundred_fifty"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/thirty"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:paddingBottom="@dimen/ten">
 
-            <Spinner
-                android:id="@+id/area_spinner"
-                android:layout_width="@dimen/hundred_fifty"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/fifteen"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
+                <Spinner
+                    android:id="@+id/city_spinner"
+                    android:layout_width="@dimen/hundred_fifty"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/thirty"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/building_name_input_field"
-                android:layout_width="@dimen/two_hundred_fifty"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/building_name"
-                android:background="@drawable/draw_dashboard_searchbox"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/appartment_name_input_field"
-                android:layout_width="@dimen/two_hundred_fifty"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/appartment_name"
-                android:background="@drawable/draw_dashboard_searchbox"
-                android:layout_marginTop="@dimen/twenty"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/street_address_input_field"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:hint="@string/street_address"
-                android:textSize="@dimen/fourteen_text_size"
-                android:background="@drawable/draw_dashboard_searchbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
+                <Spinner
+                    android:id="@+id/area_spinner"
+                    android:layout_width="@dimen/hundred_fifty"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/fifteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
 
 
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/city_id_field"
-                android:layout_width="@dimen/sxity_five"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/city_id"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:background="@drawable/draw_dashboard_searchbox"
-                android:clickable="false"
-                android:editable="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/building_name_input_field"
+                    android:layout_width="@dimen/two_hundred_fifty"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:hint="@string/building_name"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
 
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/area_id_field"
-                android:layout_width="@dimen/sxity_five"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:clickable="false"
-                android:hint="@string/area_id"
-                android:textSize="@dimen/fourteen_text_size"
-                android:background="@drawable/draw_dashboard_searchbox"
-                android:editable="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/appartment_name_input_field"
+                    android:layout_width="@dimen/two_hundred_fifty"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:hint="@string/appartment_name"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
 
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/device_id_field"
-                android:layout_width="@dimen/sxity_five"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/device_id"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:background="@drawable/draw_dashboard_searchbox"
-                android:clickable="false"
-                android:editable="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/lang_field"
-                android:layout_width="@dimen/sxity_five"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:textSize="@dimen/fourteen_text_size"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:hint="@string/lang"
-                android:background="@drawable/draw_dashboard_searchbox"
-                android:clickable="false"
-                android:editable="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/latitude_field"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:clickable="false"
-                android:editable="false"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/latitude"
-                android:background="@drawable/draw_dashboard_searchbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lang_field" />
-
-            <com.example.myapplication.CustomViews.BodyEditText
-                android:id="@+id/longitude_field"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginTop="@dimen/twenty"
-                android:layout_marginEnd="@dimen/fifteen"
-                android:clickable="false"
-                android:editable="false"
-                android:textSize="@dimen/fourteen_text_size"
-                android:hint="@string/longitude"
-                android:background="@drawable/draw_dashboard_searchbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/street_address_input_field"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:hint="@string/street_address"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
 
 
-            <com.example.myapplication.CustomViews.MyButton
-                android:id="@+id/done_button"
-                android:layout_width="@dimen/zero"
-                android:layout_height="@dimen/forty"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/longitude_field"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/fifteen"
-                android:textColor="@color/white"
-                android:text="Done"
-                android:textAllCaps="false"
-                android:background="@drawable/draw_body_blue_button_circular_corners"
-                android:layout_marginStart="@dimen/fifteen"
-                android:layout_marginEnd="@dimen/fifteen"/>
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/city_id_field"
+                    android:layout_width="@dimen/sxity_five"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/city_id"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/area_id_field"
+                    android:layout_width="@dimen/sxity_five"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/area_id"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
 
-    </ScrollView>
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/device_id_field"
+                    android:layout_width="@dimen/sxity_five"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/device_id"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/lang_field"
+                    android:layout_width="@dimen/sxity_five"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/lang"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
+
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/latitude_field"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/latitude"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lang_field" />
+
+                <com.example.myapplication.CustomViews.BodyEditText
+                    android:id="@+id/longitude_field"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_dashboard_searchbox"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="@string/longitude"
+                    android:textSize="@dimen/fourteen_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
+
+
+                <com.example.myapplication.CustomViews.MyButton
+                    android:id="@+id/done_button"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="@dimen/forty"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/fifteen"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:background="@drawable/draw_body_blue_button_circular_corners"
+                    android:text="Done"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/longitude_field" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
