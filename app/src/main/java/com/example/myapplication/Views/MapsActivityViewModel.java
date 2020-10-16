@@ -31,7 +31,7 @@ public class MapsActivityViewModel extends ViewModel {
     public void initGui(MapsActivity context, SupportMapFragment mapFragment) {
         this.mapFragment =mapFragment;
         client = LocationServices.getFusedLocationProviderClient(context);
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATI  ON) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation(context);
         } else {
             //When permission denied
