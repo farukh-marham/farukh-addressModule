@@ -9,6 +9,7 @@ import com.example.myapplication.Views.MainActivityViewModel;
 
 public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
+    //TODO dagger (DI)
     private DataRepository dataRepository = new DataRepository();
 
     MainActivityViewModel t;

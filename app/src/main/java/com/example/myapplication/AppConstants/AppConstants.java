@@ -7,6 +7,7 @@ public class AppConstants {
     public static final String JSON_PARSING_MESSAGE = "Unable to comprehend response from server";
     public static final String SUCCESS = "200" ;
     public static final int FAILED = 402 ;
+    public static final String CITY_LIST_KEY = "cities_list_key";
 
     public static class APIKEYS {
         public static final int GET_USER_ADDRESS = 1;
