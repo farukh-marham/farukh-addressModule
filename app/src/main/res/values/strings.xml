@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="body_text" translatable="false">body_text.ttf</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="lang">lang</string>
+    <string name="device_id">device_id</string>
+    <string name="area_id">area_id</string>
+    <string name="city_id">city_id</string>
+    <string name="street_address">Street address</string>
+    <string name="appartment_name">Appartment name</string>
+    <string name="building_name">Building name</string>
 </resources>
