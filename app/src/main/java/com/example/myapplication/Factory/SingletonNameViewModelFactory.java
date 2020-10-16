@@ -13,14 +13,7 @@ public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstance
 
     MainActivityViewModel t;
 
-//    @NonNull
-//    @Override
-//    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-//        return super.create(modelClass);
-//    }
-
     public SingletonNameViewModelFactory() {
-        //  t = provideNameViewModelSomeHowUsingDependencyInjection
     }
 
     @NonNull

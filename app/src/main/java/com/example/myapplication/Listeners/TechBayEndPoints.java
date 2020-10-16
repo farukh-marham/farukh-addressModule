@@ -17,7 +17,6 @@ public interface TechBayEndPoints {
 
 
     @GET("get-user-addresses")
-    Call<AddressServerResponse> getUserAddress(@Query("device_id") String deviceId,
-                                   @Query("lang") String lang);
+    Call<AddressServerResponse> getUserAddress(@Query("device_id") String deviceId, @Query("lang") String lang);
 
 }

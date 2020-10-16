@@ -1,14 +1,13 @@
 package com.example.myapplication.Views;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.ApiResponse.ServerResponse;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
          mModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MainActivityViewModel.class);
          attachViewModel();
-         mModel.getUserAddress("123", "en");
+         mModel.getUserAddress("123", "en"); //hardcoded strings
     }
 
     private void attachViewModel(){
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(AddressServerResponse addressServerResponse) {
                 Log.e("address==>>", addressServerResponse.toString());
+
                 //final response
             }
         });
