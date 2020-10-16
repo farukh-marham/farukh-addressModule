@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.myapplication.ApiClient.RetroFit2Callback;
 import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.ApiResponse.ServerResponse;
 import com.example.myapplication.AppConstants.AppConstants;
@@ -16,8 +17,7 @@ public class AddressAndCitiesActivityViewModel extends ViewModel {
 
     private DataRepository dataRepository;
     private MutableLiveData<AddressServerResponse> data;
-    MutableLiveData<Boolean> progressBar = new MutableLiveData<>();
-    MutableLiveData<ServerResponse> sendErrorMessage = new MutableLiveData<>();
+
 
     public AddressAndCitiesActivityViewModel(DataRepository dataRepository) {
         this.dataRepository = dataRepository;
@@ -28,11 +28,7 @@ public class AddressAndCitiesActivityViewModel extends ViewModel {
             return;
         }
         dataRepository = DataRepository.getInstance();
-        data = dataRepository.getUserAddress("123", "en");
-    }
-
-    private void showProgressBar(Boolean show) {
-        progressBar.setValue(show);
+        data = dataRepository.getUserAddress("123", "en"); //hardcoded strings
     }
 
     public LiveData<AddressServerResponse> getAddressRepository() {

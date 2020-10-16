@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    dataBinding {
-        enabled = true
+    compileSdkVersion 29
+
+    buildFeatures {
+        viewBinding true
     }
 
     defaultConfig {
-        compileSdkVersion 29
+
         applicationId "com.example.myapplication"
         minSdkVersion 17
         targetSdkVersion 29
