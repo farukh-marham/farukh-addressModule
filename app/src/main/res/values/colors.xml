@@ -8,4 +8,6 @@
     <color name="light_blue">#014E78</color>
     <color name="white">#ffffff</color>
     <color name="dark_grey">#333333</color>
+    <color name="blue_custom_spinner_text">#072637</color>
+    <color name="black">#020000</color>
 </resources>

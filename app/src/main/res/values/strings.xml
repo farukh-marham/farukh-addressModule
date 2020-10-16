@@ -10,4 +10,6 @@
     <string name="street_address">Street address</string>
     <string name="appartment_name">Appartment name</string>
     <string name="building_name">Building name</string>
+    <string name="test">test</string>
+    <string name="select_city">Select city</string>
 </resources>

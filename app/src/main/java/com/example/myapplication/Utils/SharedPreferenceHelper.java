@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.myapplication.ApiResponse.Models.AreaOfCities;
+import com.example.myapplication.ApiResponse.Models.Cities;
 import com.example.myapplication.ApiResponse.Models.Data;
 import com.google.gson.Gson;
 
@@ -33,7 +34,7 @@ public class SharedPreferenceHelper {
     }
 
 
-    public List<Data> getSharedPreferenceListOfCities(Context context, String key, Type type) {
+    public List<Cities> getSharedPreferenceListOfCities(Context context, String key, Type type) {
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
@@ -41,6 +42,8 @@ public class SharedPreferenceHelper {
 
         return gson.fromJson(json, type);
     }
+
+
 
     public List<AreaOfCities> getSharedPreferenceListOfAreas(Context context, String key, Type type) {
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);

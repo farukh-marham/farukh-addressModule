@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.Respository.DataRepository;
-import com.example.myapplication.ViewModels.AddAddressActivityViewModel;
-import com.example.myapplication.ViewModels.AddressAndCitiesActivityViewModel;
-import com.example.myapplication.ViewModels.MapsActivityViewModel;
+import com.example.myapplication.models.AddressAndCitiesActivityViewModel;
+import com.example.myapplication.models.MapsActivityViewModel;
 
 public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
@@ -30,8 +29,6 @@ public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstance
         else if(modelClass== MapsActivityViewModel.class) {
             return (T) new MapsActivityViewModel();
 
-        }else if(modelClass== AddAddressActivityViewModel.class){
-            return (T)new AddAddressActivityViewModel();
         }
         return null;
     }

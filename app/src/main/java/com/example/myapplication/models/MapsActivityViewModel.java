@@ -1,9 +1,8 @@
-package com.example.myapplication.ViewModels;
+package com.example.myapplication.models;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Handler;
 
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModel;
@@ -18,7 +17,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 public class MapsActivityViewModel extends ViewModel {
@@ -27,6 +25,7 @@ public class MapsActivityViewModel extends ViewModel {
     public SupportMapFragment mapFragment;
 
 
+    private String latitude,longitude;
 
     public void initGui(MapsActivity context, SupportMapFragment mapFragment) {
         this.mapFragment =mapFragment;
@@ -38,6 +37,23 @@ public class MapsActivityViewModel extends ViewModel {
             ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, AppConstants.REQUEST_MAPS_PERMISSION_CODE);
         }
     }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
     public void getCurrentLocation(MapsActivity context) {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -56,6 +72,9 @@ public class MapsActivityViewModel extends ViewModel {
                     @Override
                     public void onMapReady(GoogleMap googleMap) {
                         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+                        setLatitude(String.valueOf(location.getLatitude()));
+                        setLatitude(String.valueOf(location.getLongitude()));
                         //creating marker
                         MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
                         //zoom map

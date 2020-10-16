@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/tools">
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/to`ols"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ViewModels.AddAddressActivityViewModel" />
+            type="com.example.myapplication.models.AddAddressActivityViewModel" />
     </data>
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -41,14 +40,64 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/ten">
 
+
+                <TextView
+                    android:id="@+id/city_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:text="City"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/city_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/ten"
+                    android:afterTextChanged="@{(editable)->viewModel.afterEmailTextChanged(editable)}"
+                    android:text="@string/select_city"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/city_heading" />
+
                 <Spinner
                     android:id="@+id/city_spinner"
                     android:layout_width="@dimen/hundred_fifty"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/thirty"
+                    android:layout_marginTop="@dimen/ten"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/city_heading" />
+
+
+
+                <TextView
+                    android:id="@+id/area_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fifteen"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:text="Area"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
+
+
+                <TextView
+                    android:id="@+id/area_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:afterTextChanged="@{(editable)->viewModel.afterEmailTextChanged(editable)}"
+                    android:layout_marginTop="@dimen/fifteen"
+                    android:text="Select area"
+                    android:layout_marginStart="@dimen/fifteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/area_heading" />
 
                 <Spinner
                     android:id="@+id/area_spinner"
@@ -57,10 +106,10 @@
                     android:layout_marginStart="@dimen/fifteen"
                     android:layout_marginTop="@dimen/fifteen"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
+                    app:layout_constraintTop_toBottomOf="@+id/area_heading" />
 
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/building_name_input_field"
                     android:layout_width="@dimen/two_hundred_fifty"
                     android:layout_height="wrap_content"
@@ -68,28 +117,31 @@
                     android:layout_marginTop="@dimen/twenty"
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:hint="@string/building_name"
+                    android:afterTextChanged="@{(editable)->viewModel.setBuildingName(editable)}"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/appartment_name_input_field"
                     android:layout_width="@dimen/two_hundred_fifty"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/fifteen"
                     android:layout_marginTop="@dimen/twenty"
+                    android:afterTextChanged="@{(editable)->viewModel.setAppartmentName(editable)}"
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:hint="@string/appartment_name"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/street_address_input_field"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/fifteen"
                     android:layout_marginTop="@dimen/twenty"
+                    android:afterTextChanged="@{(editable)->viewModel.setStreetAddress(editable)}"
                     android:layout_marginEnd="@dimen/fifteen"
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:hint="@string/street_address"
@@ -99,7 +151,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
 
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/city_id_field"
                     android:layout_width="@dimen/sxity_five"
                     android:layout_height="wrap_content"
@@ -109,12 +161,13 @@
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
                     android:editable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setCityId(editable)}"
                     android:hint="@string/city_id"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/area_id_field"
                     android:layout_width="@dimen/sxity_five"
                     android:layout_height="wrap_content"
@@ -124,12 +177,13 @@
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
                     android:editable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setAreaId(editable)}"
                     android:hint="@string/area_id"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/device_id_field"
                     android:layout_width="@dimen/sxity_five"
                     android:layout_height="wrap_content"
@@ -139,12 +193,13 @@
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
                     android:editable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setdeviceId(editable)}"
                     android:hint="@string/device_id"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/lang_field"
                     android:layout_width="@dimen/sxity_five"
                     android:layout_height="wrap_content"
@@ -154,12 +209,13 @@
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
                     android:editable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setLang(editable)}"
                     android:hint="@string/lang"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/latitude_field"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
@@ -169,13 +225,14 @@
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
                     android:editable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setLatitude(editable)}"
                     android:hint="@string/latitude"
                     android:textSize="@dimen/fourteen_text_size"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lang_field" />
 
-                <com.example.myapplication.CustomViews.BodyEditText
+                <EditText
                     android:id="@+id/longitude_field"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
@@ -184,6 +241,7 @@
                     android:layout_marginEnd="@dimen/fifteen"
                     android:background="@drawable/draw_dashboard_searchbox"
                     android:clickable="false"
+                    android:afterTextChanged="@{(editable)->viewModel.setLongitude(editable)}"
                     android:editable="false"
                     android:hint="@string/longitude"
                     android:textSize="@dimen/fourteen_text_size"
@@ -192,7 +250,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
 
 
-                <com.example.myapplication.CustomViews.MyButton
+                <Button
                     android:id="@+id/done_button"
                     android:layout_width="@dimen/zero"
                     android:layout_height="@dimen/forty"

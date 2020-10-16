@@ -1,4 +1,4 @@
-package com.example.myapplication.ViewModels;
+package com.example.myapplication.models;
 
 
 import androidx.lifecycle.LiveData;
@@ -44,6 +44,6 @@ public class AddressAndCitiesActivityViewModel extends ViewModel {
     }
 
     public void storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity context, AddressServerResponse addressServerResponse) {
-        SharedPreferenceHelper.getInstance().setSharedPreferenceList(context, AppConstants.CITY_LIST_KEY,addressServerResponse.getData().getAreas_of_cities());
+        SharedPreferenceHelper.getInstance().setSharedPreferenceList(context, AppConstants.AREA_LIST_KEY,addressServerResponse.getData().getAreas_of_cities());
     }
 }

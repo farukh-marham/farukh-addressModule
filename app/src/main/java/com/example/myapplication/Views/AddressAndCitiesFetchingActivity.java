@@ -11,7 +11,7 @@ import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
 import com.example.myapplication.Utils.Utils;
-import com.example.myapplication.ViewModels.AddressAndCitiesActivityViewModel;
+import com.example.myapplication.models.AddressAndCitiesActivityViewModel;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -29,15 +29,12 @@ public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
         mModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(AddressAndCitiesActivityViewModel.class);
         mModel.init();
         showOrHideLoader(true);
-        mModel.getAddressRepository().observe(this, new Observer<AddressServerResponse>() {
-            @Override
-            public void onChanged(AddressServerResponse addressServerResponse) {
-                AddressAndCitiesFetchingActivity.this.showOrHideLoader(false);
-                mModel.storeListOfCitiesInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
-                mModel.storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
-                Utils.getInstance().startActivityAndFinish(AddressAndCitiesFetchingActivity.this,MapsActivity.class);
+        mModel.getAddressRepository().observe(this, addressServerResponse -> {
+            AddressAndCitiesFetchingActivity.this.showOrHideLoader(false);
+            mModel.storeListOfCitiesInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
+            mModel.storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
+            Utils.getInstance().startActivityAndFinish(AddressAndCitiesFetchingActivity.this,MapsActivity.class);
 
-            }
         });
     }
 

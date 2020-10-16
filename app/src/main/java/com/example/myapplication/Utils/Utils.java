@@ -38,4 +38,11 @@ public class Utils {
         Intent intent = new Intent(activity, c);
         activity.startActivity(intent);
     }
+
+    public void startActivityAndPassBundle(Activity activity, Class c, Bundle bundle) {
+        Intent intent = new Intent(activity, c);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        activity.startActivity(intent);
+    }
 }

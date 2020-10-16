@@ -14,11 +14,8 @@ import com.example.myapplication.AppConstants.AppConstants;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
 import com.example.myapplication.Utils.Utils;
-import com.example.myapplication.ViewModels.MapsActivityViewModel;
+import com.example.myapplication.models.MapsActivityViewModel;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.karumi.dexter.Dexter;
-
-import java.security.Permission;
 
 public class MapsActivity extends AppCompatActivity {
 
@@ -40,7 +37,10 @@ public class MapsActivity extends AppCompatActivity {
 
     private void startAddAddressScreen() {
         Handler handler = new Handler();
-        handler.postDelayed(() -> Utils.getInstance().startActivity(MapsActivity.this, AddAddressActivity.class), 4000);
+        Bundle bundle = new Bundle();
+        bundle.putString(AppConstants.LAT,mapsActivityViewModel.getLatitude());
+        bundle.putString(AppConstants.LNG,mapsActivityViewModel.getLongitude());
+        handler.postDelayed(() -> Utils.getInstance().startActivityAndPassBundle(MapsActivity.this, AddAddressActivity.class,bundle), 4000);
     }
 
     private void initGui() {
