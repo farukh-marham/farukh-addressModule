@@ -12,14 +12,14 @@ import com.example.myapplication.Respository.DataRepository;
 import com.example.myapplication.Utils.SharedPreferenceHelper;
 import com.example.myapplication.Views.AddressAndCitiesFetchingActivity;
 
-public class MainActivityViewModel extends ViewModel {
+public class AddressAndCitiesActivityViewModel extends ViewModel {
 
     private DataRepository dataRepository;
     private MutableLiveData<AddressServerResponse> data;
     MutableLiveData<Boolean> progressBar = new MutableLiveData<>();
     MutableLiveData<ServerResponse> sendErrorMessage = new MutableLiveData<>();
 
-    public MainActivityViewModel(DataRepository dataRepository) {
+    public AddressAndCitiesActivityViewModel(DataRepository dataRepository) {
         this.dataRepository = dataRepository;
     }
 

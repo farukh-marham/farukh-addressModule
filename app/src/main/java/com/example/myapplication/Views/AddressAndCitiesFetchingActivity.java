@@ -11,13 +11,13 @@ import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
 import com.example.myapplication.Utils.Utils;
-import com.example.myapplication.ViewModels.MainActivityViewModel;
+import com.example.myapplication.ViewModels.AddressAndCitiesActivityViewModel;
 
 import pl.droidsonroids.gif.GifImageView;
 
 public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
 
-    private MainActivityViewModel mModel;
+    private AddressAndCitiesActivityViewModel mModel;
     private GifImageView gifImageView;
 
 
@@ -26,7 +26,7 @@ public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGui();
-        mModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MainActivityViewModel.class);
+        mModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(AddressAndCitiesActivityViewModel.class);
         mModel.init();
         showOrHideLoader(true);
         mModel.getAddressRepository().observe(this, new Observer<AddressServerResponse>() {

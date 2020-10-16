@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Views.AddAddressActivity">
+
+
 
 
     <include
@@ -16,6 +20,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </include>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -180,6 +186,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
+
+
+            <com.example.myapplication.CustomViews.MyButton
+                android:id="@+id/done_button"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/forty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/longitude_field"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/fifteen"
+                android:textColor="@color/white"
+                android:text="Done"
+                android:textAllCaps="false"
+                android:background="@drawable/draw_body_blue_button_circular_corners"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginEnd="@dimen/fifteen"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

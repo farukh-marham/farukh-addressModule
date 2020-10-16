@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.Respository.DataRepository;
-import com.example.myapplication.ViewModels.MainActivityViewModel;
+import com.example.myapplication.ViewModels.AddAddressActivityViewModel;
+import com.example.myapplication.ViewModels.AddressAndCitiesActivityViewModel;
 import com.example.myapplication.ViewModels.MapsActivityViewModel;
 
 public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstanceFactory {
@@ -13,7 +14,7 @@ public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstance
     //TODO dagger (DI)
     private DataRepository dataRepository = new DataRepository();
 
-    MainActivityViewModel t;
+    AddressAndCitiesActivityViewModel t;
 
     public SingletonNameViewModelFactory() {
     }
@@ -21,13 +22,16 @@ public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstance
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        modelClass.isAssignableFrom(MainActivityViewModel.class);
+        modelClass.isAssignableFrom(AddressAndCitiesActivityViewModel.class);
 
-        if (modelClass == MainActivityViewModel.class) {
-            return (T) new MainActivityViewModel(dataRepository);
+        if (modelClass == AddressAndCitiesActivityViewModel.class) {
+            return (T) new AddressAndCitiesActivityViewModel(dataRepository);
         }
         else if(modelClass== MapsActivityViewModel.class) {
             return (T) new MapsActivityViewModel();
+
+        }else if(modelClass== AddAddressActivityViewModel.class){
+            return (T)new AddAddressActivityViewModel();
         }
         return null;
     }
