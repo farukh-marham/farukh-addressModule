@@ -38,15 +38,6 @@ public class MapsActivityViewModel extends ViewModel {
             ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, AppConstants.REQUEST_MAPS_PERMISSION_CODE);
         }
     }
-
-    public SupportMapFragment getSupportMapFragment() {
-        return supportMapFragment;
-    }
-
-    public void setSupportMapFragment(SupportMapFragment supportMapFragment) {
-        this.supportMapFragment = supportMapFragment;
-    }
-
     public void getCurrentLocation(MapsActivity context) {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling

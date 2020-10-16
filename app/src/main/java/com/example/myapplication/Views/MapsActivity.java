@@ -50,6 +50,5 @@ public class MapsActivity extends AppCompatActivity {
                 mapsActivityViewModel.getCurrentLocation(MapsActivity.this);
             }
         }
-
     }
 }
