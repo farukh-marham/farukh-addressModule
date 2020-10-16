@@ -13,6 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBg9ioywfqA48cG18LnpLNEskYIx93A8nQ"/>
+
+        <activity android:name=".Views.MapsActivity"></activity>
         <activity android:name=".Views.AddressAndCitiesFetchingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

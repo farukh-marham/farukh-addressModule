@@ -8,6 +8,7 @@ public class AppConstants {
     public static final String SUCCESS = "200" ;
     public static final int FAILED = 402 ;
     public static final String CITY_LIST_KEY = "cities_list_key";
+    public static final int REQUEST_MAPS_PERMISSION_CODE = 44;
 
     public static class APIKEYS {
         public static final int GET_USER_ADDRESS = 1;
