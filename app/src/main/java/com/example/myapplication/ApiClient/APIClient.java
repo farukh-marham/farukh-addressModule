@@ -49,6 +49,7 @@ public class APIClient {
 //    }
 
     public static <S> S cteateService(Class<S> serviceClass) {
+        APIClient apiClient = new APIClient();
         return retrofit.create(serviceClass);
     }
 }

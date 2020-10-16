@@ -4,6 +4,7 @@ import com.example.myapplication.ApiClient.APIClient;
 import com.example.myapplication.ApiClient.RetroFit2Callback;
 import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.ApiResponse.ServerResponse;
+import com.example.myapplication.AppConstants.AppConstants;
 import com.example.myapplication.Listeners.TechBayEndPoints;
 import com.example.myapplication.Source.UserDataSource;
 
@@ -28,7 +29,6 @@ public class DataRepository {
     private TechBayEndPoints techBayEndPoints;
 
     public DataRepository(){
-        APIClient apiClient = new APIClient();
         techBayEndPoints = APIClient.cteateService(TechBayEndPoints.class);
     }
 
@@ -37,10 +37,12 @@ public class DataRepository {
             @Override
             public void onResponse(Call<AddressServerResponse> call, Response<AddressServerResponse> response) {
                 if (response.isSuccessful()) {
-                    if (response.body().getStatus().equals("200")) {
-                        callback.onSuccessResponseCallback(response.body());
-                    } else {
-                        callback.onPayloadError(response.body());
+                    if (response.body() != null) {
+                        if (response.body().getStatus().equals(AppConstants.SUCCESS)) {
+                            callback.onSuccessResponseCallback(response.body());
+                        } else {
+                            callback.onPayloadError(response.body());
+                        }
                     }
                 }
             }
@@ -48,7 +50,7 @@ public class DataRepository {
             public void onFailure(Call<AddressServerResponse> call, Throwable t) {
                 ArrayList<String> errorMsgList = new ArrayList<>();
                 errorMsgList.add(t.getMessage());
-                ServerResponse serverResponse = new ServerResponse(402, "failed", errorMsgList);
+                ServerResponse serverResponse = new ServerResponse(AppConstants.FAILED, AppConstants.JSON_PARSING_MESSAGE, errorMsgList);
                 callback.onPayloadError(serverResponse);
             }
         });
