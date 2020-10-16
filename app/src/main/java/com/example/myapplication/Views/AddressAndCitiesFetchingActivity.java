@@ -11,6 +11,7 @@ import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
 import com.example.myapplication.Utils.Utils;
+import com.example.myapplication.ViewModels.MainActivityViewModel;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -34,7 +35,7 @@ public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
                 AddressAndCitiesFetchingActivity.this.showOrHideLoader(false);
                 mModel.storeListOfCitiesInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
                 mModel.storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
-                Utils.getInstance().startActivity(AddressAndCitiesFetchingActivity.this,MapsActivity.class);
+                Utils.getInstance().startActivityAndFinish(AddressAndCitiesFetchingActivity.this,MapsActivity.class);
 
             }
         });

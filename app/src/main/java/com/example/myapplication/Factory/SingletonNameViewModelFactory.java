@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.Respository.DataRepository;
-import com.example.myapplication.Views.MainActivityViewModel;
-import com.example.myapplication.Views.MapsActivityViewModel;
+import com.example.myapplication.ViewModels.MainActivityViewModel;
+import com.example.myapplication.ViewModels.MapsActivityViewModel;
 
 public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 

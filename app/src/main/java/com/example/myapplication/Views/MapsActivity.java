@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -15,16 +14,11 @@ import com.example.myapplication.AppConstants.AppConstants;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
 import com.example.myapplication.Utils.Utils;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
+import com.example.myapplication.ViewModels.MapsActivityViewModel;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.karumi.dexter.Dexter;
+
+import java.security.Permission;
 
 public class MapsActivity extends AppCompatActivity {
 
@@ -38,19 +32,19 @@ public class MapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maps);
         initGui();
         mapsActivityViewModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MapsActivityViewModel.class);
-        mapsActivityViewModel.initGui(MapsActivity.this,mapFragment);
-        startAddAddressScreen();
-
+        mapsActivityViewModel.initGui(MapsActivity.this, mapFragment);
+        if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            startAddAddressScreen();
+        }
     }
 
     private void startAddAddressScreen() {
         Handler handler = new Handler();
-        handler.postDelayed(() -> Utils.getInstance().startActivity(MapsActivity.this,AddAddressActivity.class), 4000);
-
+        handler.postDelayed(() -> Utils.getInstance().startActivity(MapsActivity.this, AddAddressActivity.class), 4000);
     }
 
     private void initGui() {
-        mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.google_maps);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_maps);
     }
 
     @Override
@@ -58,6 +52,7 @@ public class MapsActivity extends AppCompatActivity {
         if (requestCode == AppConstants.REQUEST_MAPS_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 mapsActivityViewModel.getCurrentLocation(MapsActivity.this);
+                startAddAddressScreen();
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.myapplication.Views;
+package com.example.myapplication.ViewModels;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModel;
 
 import com.example.myapplication.AppConstants.AppConstants;
+import com.example.myapplication.Views.MapsActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;

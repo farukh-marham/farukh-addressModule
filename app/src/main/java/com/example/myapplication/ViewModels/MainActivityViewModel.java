@@ -1,4 +1,4 @@
-package com.example.myapplication.Views;
+package com.example.myapplication.ViewModels;
 
 
 import androidx.lifecycle.LiveData;
@@ -10,6 +10,7 @@ import com.example.myapplication.ApiResponse.ServerResponse;
 import com.example.myapplication.AppConstants.AppConstants;
 import com.example.myapplication.Respository.DataRepository;
 import com.example.myapplication.Utils.SharedPreferenceHelper;
+import com.example.myapplication.Views.AddressAndCitiesFetchingActivity;
 
 public class MainActivityViewModel extends ViewModel {
 

@@ -28,25 +28,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:textColor="@color/blue"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
-
-        <RelativeLayout
-            android:id="@+id/share_button_container"
-            android:layout_width="@dimen/fifty"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-
-            android:layout_marginTop="@dimen/three"
-
-            android:background="@drawable/draw_bg_share_button"
-            android:visibility="invisible">
-
-        </RelativeLayout>
-
-
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
