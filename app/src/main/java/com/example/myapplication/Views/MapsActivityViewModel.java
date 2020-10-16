@@ -3,12 +3,12 @@ package com.example.myapplication.Views;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Handler;
 
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModel;
 
 import com.example.myapplication.AppConstants.AppConstants;
-import com.example.myapplication.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,7 +22,6 @@ import com.google.android.gms.tasks.Task;
 
 public class MapsActivityViewModel extends ViewModel {
 
-    private SupportMapFragment supportMapFragment;
     private FusedLocationProviderClient client;
     public SupportMapFragment mapFragment;
 
@@ -50,25 +49,25 @@ public class MapsActivityViewModel extends ViewModel {
             return;
         }
         Task<Location> task = client.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(final Location location) {
-                if (location != null) {
-                    mapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(GoogleMap googleMap) {
-                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                            //creating marker
-                            MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
-                            //zoom map
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                            //Add marker on map
-                            googleMap.addMarker(options);
-                        }
-                    });
-                }
+        task.addOnSuccessListener(location -> {
+            if (location != null) {
+                mapFragment.getMapAsync(new OnMapReadyCallback() {
+                    @Override
+                    public void onMapReady(GoogleMap googleMap) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        //creating marker
+                        MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
+                        //zoom map
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                        //Add marker on map
+                        googleMap.addMarker(options);
+
+                    }
+                });
             }
         });
 
     }
+
+
 }

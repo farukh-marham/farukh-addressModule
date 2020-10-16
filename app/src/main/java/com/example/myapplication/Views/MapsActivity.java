@@ -9,10 +9,12 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.example.myapplication.AppConstants.AppConstants;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
+import com.example.myapplication.Utils.Utils;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,8 +39,16 @@ public class MapsActivity extends AppCompatActivity {
         initGui();
         mapsActivityViewModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MapsActivityViewModel.class);
         mapsActivityViewModel.initGui(MapsActivity.this,mapFragment);
-        mapsActivityViewModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MapsActivityViewModel.class);
+        startAddAddressScreen();
+
     }
+
+    private void startAddAddressScreen() {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> Utils.getInstance().startActivity(MapsActivity.this,AddAddressActivity.class), 4000);
+
+    }
+
     private void initGui() {
         mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.google_maps);
     }
