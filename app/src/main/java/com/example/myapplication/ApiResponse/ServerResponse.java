@@ -19,6 +19,22 @@ public class ServerResponse {
 
     }
 
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setMsg(List<String> msg) {
+        this.msg = msg;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
+    }
+
     public int getCode() {
         return code;
     }

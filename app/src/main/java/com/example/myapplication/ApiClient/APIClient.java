@@ -47,4 +47,8 @@ public class APIClient {
 //    public Call<AddressServerResponse> getUserAddress(HashMap<String,String> info) {
 //        return apiService.getUserAddress(info);
 //    }
+
+    public static <S> S cteateService(Class<S> serviceClass) {
+        return retrofit.create(serviceClass);
+    }
 }

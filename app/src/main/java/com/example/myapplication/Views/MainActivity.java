@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
          mModel = ViewModelProviders.of(this, new SingletonNameViewModelFactory()).get(MainActivityViewModel.class);
          attachViewModel();
-
          mModel.getUserAddress("123", "en");
     }
 
