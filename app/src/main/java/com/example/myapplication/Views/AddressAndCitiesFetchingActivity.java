@@ -10,11 +10,10 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.myapplication.ApiResponse.AddressServerResponse;
 import com.example.myapplication.Factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
-import com.example.myapplication.Utils.SharedPreferenceHelper;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
 
     private MainActivityViewModel mModel;
     private GifImageView gifImageView;
@@ -31,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         mModel.getAddressRepository().observe(this, new Observer<AddressServerResponse>() {
             @Override
             public void onChanged(AddressServerResponse addressServerResponse) {
-                MainActivity.this.showOrHideLoader(false);
-                mModel.storeListOfCitiesInSharedPreference(MainActivity.this,addressServerResponse);
-                mModel.storeListOfAreasInSharedPreference(MainActivity.this, addressServerResponse);
+                AddressAndCitiesFetchingActivity.this.showOrHideLoader(false);
+                mModel.storeListOfCitiesInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
+                mModel.storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity.this, addressServerResponse);
 
             }
         });

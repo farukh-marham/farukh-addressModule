@@ -38,11 +38,11 @@ public class MainActivityViewModel extends ViewModel {
         return data;
     }
 
-    public void storeListOfCitiesInSharedPreference(MainActivity context, AddressServerResponse addressServerResponse) {
+    public void storeListOfCitiesInSharedPreference(AddressAndCitiesFetchingActivity context, AddressServerResponse addressServerResponse) {
         SharedPreferenceHelper.getInstance().setSharedPreferenceList(context, AppConstants.CITY_LIST_KEY,addressServerResponse.getData().getCities());
     }
 
-    public void storeListOfAreasInSharedPreference(MainActivity context, AddressServerResponse addressServerResponse) {
+    public void storeListOfAreasInSharedPreference(AddressAndCitiesFetchingActivity context, AddressServerResponse addressServerResponse) {
         SharedPreferenceHelper.getInstance().setSharedPreferenceList(context, AppConstants.CITY_LIST_KEY,addressServerResponse.getData().getAreas_of_cities());
     }
 }
