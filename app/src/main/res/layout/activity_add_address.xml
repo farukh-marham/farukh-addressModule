@@ -1,10 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Views.AddAddressActivity">
 
 
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/layout_top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/city_spinner"
+                android:layout_width="@dimen/hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/thirty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/area_spinner"
+                android:layout_width="@dimen/hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
+
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/building_name_input_field"
+                android:layout_width="@dimen/two_hundred_fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/appartment_name_input_field"
+                android:layout_width="@dimen/two_hundred_fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/street_address_input_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
+
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/city_id_field"
+                android:layout_width="@dimen/fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/area_id_field"
+                android:layout_width="@dimen/fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/device_id_field"
+                android:layout_width="@dimen/fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/lang_field"
+                android:layout_width="@dimen/fifty"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/latitude_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lang_field" />
+
+            <com.example.myapplication.CustomViews.BodyEditText
+                android:id="@+id/longitude_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/thirty_five"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:clickable="false"
+                android:editable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
