@@ -29,7 +29,7 @@ public class DataRepository {
 
     public DataRepository(){
         APIClient apiClient = new APIClient();
-        techBayEndPoints = apiClient.cteateService(TechBayEndPoints.class);
+        techBayEndPoints = APIClient.cteateService(TechBayEndPoints.class);
     }
 
     public void getUserAddress(String deviceId, String language, final UserDataSource.GetUserAddressCallback callback) {
