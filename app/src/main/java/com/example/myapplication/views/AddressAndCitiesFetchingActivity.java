@@ -2,21 +2,24 @@ package com.example.myapplication.views;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.factory.SingletonNameViewModelFactory;
 import com.example.myapplication.R;
-import com.example.myapplication.utils.Utils;
+import com.example.myapplication.customViews.BodyText;
+import com.example.myapplication.factory.SingletonNameViewModelFactory;
 import com.example.myapplication.models.AddressAndCitiesActivityViewModel;
-
-import pl.droidsonroids.gif.GifImageView;
+import com.example.myapplication.utils.Utils;
 
 public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
 
     private AddressAndCitiesActivityViewModel mModel;
-    private GifImageView gifImageView;
+    private ProgressBar progressBar;
+    private BodyText headingTextview;
+
 
 
     @Override
@@ -38,14 +41,17 @@ public class AddressAndCitiesFetchingActivity extends AppCompatActivity {
 
 
     private void initGui() {
-        gifImageView = findViewById(R.id.loading_gif_view);
+        progressBar = findViewById(R.id.loading_bar);
+        headingTextview = findViewById(R.id.heading_textview);
+        headingTextview.setText(getResources().getString(R.string.tech_bay));
+
     }
 
     public void showOrHideLoader(boolean loader) {
         if (loader) {
-            gifImageView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
         } else {
-            gifImageView.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
         }
     }
 }

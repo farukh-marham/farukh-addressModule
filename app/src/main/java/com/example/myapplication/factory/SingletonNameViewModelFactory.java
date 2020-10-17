@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myapplication.repository.DataRepository;
 import com.example.myapplication.models.AddAddressActivityViewModel;
 import com.example.myapplication.models.AddressAndCitiesActivityViewModel;
 import com.example.myapplication.models.MapsActivityViewModel;
+import com.example.myapplication.repository.DataRepository;
 
 public class SingletonNameViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 

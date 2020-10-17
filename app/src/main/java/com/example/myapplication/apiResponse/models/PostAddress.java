@@ -1,15 +1,26 @@
 package com.example.myapplication.apiResponse.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PostAddress {
 
+    @SerializedName("building_name")
     private String buildingName;
+    @SerializedName("apartment")
     private String apartmentName;
+    @SerializedName("street_address")
     private String streetAddress;
+    @SerializedName("city_id")
     private int cityId;
+    @SerializedName("area_id")
     private int areaId;
+    @SerializedName("device_id")
     private int deviceId;
+    @SerializedName("lang")
     private String lang;
+    @SerializedName("lat")
     private double lat;
+    @SerializedName("long")
     private double lng;
 
 

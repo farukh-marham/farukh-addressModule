@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.myapplication.apiClient.APIClient;
 import com.example.myapplication.apiResponse.AddressServerResponse;
 import com.example.myapplication.apiResponse.ServerResponse;
-import com.example.myapplication.appConstants.AppConstants;
-import com.example.myapplication.listeners.TechBayEndPoints;
 import com.example.myapplication.apiResponse.models.PostAddress;
+import com.example.myapplication.appConstants.AppConstants;
+import com.example.myapplication.listeners.OnResponse;
+import com.example.myapplication.listeners.TechBayEndPoints;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,16 +56,16 @@ public class DataRepository {
         return data;
     }
 
-    public void addUserAddress(PostAddress postAddress) {
+    public void addUserAddress(PostAddress postAddress, OnResponse onResponseListener) {
         techBayEndPoints.addUserAddress(postAddress).enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        if (response.body().getStatus().equals(AppConstants.SUCCESS)) {
-
+                        if (response.body().getStatus().equals(AppConstants.RESULT_OK)) {
+                            onResponseListener.onSuccess(response);
                         } else {
-
+                            onResponseListener.onError();
                         }
                     }
                 }
@@ -72,7 +73,7 @@ public class DataRepository {
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                data.setValue(null);
+                onResponseListener.onError();
             }
         });
     }

@@ -1,255 +1,266 @@
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".views.AddAddressActivity"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
-
-        <include
-            android:id="@+id/top_bar"
-            layout="@layout/layout_top_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </include>
+    tools:context=".views.AddAddressActivity">
 
 
-        <ScrollView
+
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/layout_top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/top_bar">
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/ten">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/city_heading"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/ten">
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:text="@string/city"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/city_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/ten"
+
+                android:text="@string/select_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_heading" />
+
+            <Spinner
+                android:id="@+id/city_spinner"
+                android:layout_width="@dimen/hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/ten"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_heading" />
 
 
-                <TextView
-                    android:id="@+id/city_heading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:text="@string/city"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/city_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/ten"
-
-                    android:text="@string/select_city"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/city_heading" />
-
-                <Spinner
-                    android:id="@+id/city_spinner"
-                    android:layout_width="@dimen/hundred_fifty"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/ten"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/city_heading" />
+            <TextView
+                android:id="@+id/area_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:text="Area"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
 
 
-
-                <TextView
-                    android:id="@+id/area_heading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:text="Area"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/city_spinner" />
+            <TextView
+                android:id="@+id/area_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
 
 
-                <TextView
-                    android:id="@+id/area_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                android:text="Select area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_heading" />
+
+            <Spinner
+                android:id="@+id/area_spinner"
+                android:layout_width="@dimen/hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_heading" />
 
 
-                    android:layout_marginTop="@dimen/fifteen"
-                    android:text="Select area"
-                    android:layout_marginStart="@dimen/fifteen"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/area_heading" />
+            <EditText
+                android:id="@+id/building_name_input_field"
+                android:layout_width="@dimen/two_hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:hint="@string/building_name"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
 
-                <Spinner
-                    android:id="@+id/area_spinner"
-                    android:layout_width="@dimen/hundred_fifty"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/fifteen"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/area_heading" />
+            <EditText
+                android:id="@+id/appartment_name_input_field"
+                android:layout_width="@dimen/two_hundred_fifty"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:hint="@string/appartment_name"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
 
-
-                <EditText
-                    android:id="@+id/building_name_input_field"
-                    android:layout_width="@dimen/two_hundred_fifty"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:hint="@string/building_name"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
-
-                <EditText
-                    android:id="@+id/appartment_name_input_field"
-                    android:layout_width="@dimen/two_hundred_fifty"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:hint="@string/appartment_name"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/building_name_input_field" />
-
-                <EditText
-                    android:id="@+id/street_address_input_field"
-                    android:layout_width="@dimen/zero"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:hint="@string/street_address"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
+            <EditText
+                android:id="@+id/street_address_input_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:hint="@string/street_address"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appartment_name_input_field" />
 
 
-                <EditText
-                    android:id="@+id/city_id_field"
-                    android:layout_width="@dimen/sxity_five"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/city_id"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
+            <EditText
+                android:id="@+id/city_id_field"
+                android:layout_width="@dimen/sxity_five"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/city_id"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/street_address_input_field" />
 
-                <EditText
-                    android:id="@+id/area_id_field"
-                    android:layout_width="@dimen/sxity_five"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/area_id"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
+            <EditText
+                android:id="@+id/area_id_field"
+                android:layout_width="@dimen/sxity_five"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/area_id"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city_id_field" />
 
-                <EditText
-                    android:id="@+id/device_id_field"
-                    android:layout_width="@dimen/sxity_five"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/device_id"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
+            <EditText
+                android:id="@+id/device_id_field"
+                android:layout_width="@dimen/sxity_five"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/device_id"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/area_id_field" />
 
-                <EditText
-                    android:id="@+id/lang_field"
-                    android:layout_width="@dimen/sxity_five"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/lang"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
+            <EditText
+                android:id="@+id/lang_field"
+                android:layout_width="@dimen/sxity_five"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/lang"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/device_id_field" />
 
-                <EditText
-                    android:id="@+id/latitude_field"
-                    android:layout_width="@dimen/zero"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/latitude"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lang_field" />
+            <EditText
+                android:id="@+id/latitude_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/latitude"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lang_field" />
 
-                <EditText
-                    android:id="@+id/longitude_field"
-                    android:layout_width="@dimen/zero"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_dashboard_searchbox"
-                    android:clickable="false"
-                    android:editable="false"
-                    android:hint="@string/longitude"
-                    android:textSize="@dimen/fourteen_text_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
+            <EditText
+                android:id="@+id/longitude_field"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_dashboard_searchbox"
+                android:clickable="false"
+                android:editable="false"
+                android:hint="@string/longitude"
+                android:textSize="@dimen/fourteen_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latitude_field" />
 
 
-                <Button
-                    android:id="@+id/done_button"
-                    android:layout_width="@dimen/zero"
-                    android:layout_height="@dimen/forty"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/fifteen"
-                    android:layout_marginEnd="@dimen/fifteen"
-                    android:background="@drawable/draw_body_blue_button_circular_corners"
-                    android:text="Done"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/longitude_field" />
+            <Button
+                android:id="@+id/done_button"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/forty"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:background="@drawable/draw_body_blue_button_circular_corners"
+                android:text="Done"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/longitude_field" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
+    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

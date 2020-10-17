@@ -1,21 +1,21 @@
 package com.example.myapplication.views;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.myapplication.R;
 import com.example.myapplication.appConstants.AppConstants;
 import com.example.myapplication.factory.SingletonNameViewModelFactory;
-import com.example.myapplication.R;
-import com.example.myapplication.utils.Utils;
 import com.example.myapplication.models.MapsActivityViewModel;
+import com.example.myapplication.utils.Utils;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;

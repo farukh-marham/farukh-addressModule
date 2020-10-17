@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.example.myapplication.listeners.OnEnableListener;
 import com.example.myapplication.R;
+import com.example.myapplication.listeners.OnEnableListener;
 
 public class BodyText extends AppCompatTextView {
 

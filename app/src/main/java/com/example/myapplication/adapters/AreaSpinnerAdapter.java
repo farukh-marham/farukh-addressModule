@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.example.myapplication.R;
 import com.example.myapplication.apiResponse.models.AreaOfCities;
 import com.example.myapplication.customViews.BodyText;
-import com.example.myapplication.R;
 
 import java.util.List;
 
