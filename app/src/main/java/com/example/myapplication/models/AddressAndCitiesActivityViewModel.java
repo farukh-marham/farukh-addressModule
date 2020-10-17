@@ -5,13 +5,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.myapplication.ApiClient.RetroFit2Callback;
-import com.example.myapplication.ApiResponse.AddressServerResponse;
-import com.example.myapplication.ApiResponse.ServerResponse;
-import com.example.myapplication.AppConstants.AppConstants;
-import com.example.myapplication.Respository.DataRepository;
-import com.example.myapplication.Utils.SharedPreferenceHelper;
-import com.example.myapplication.Views.AddressAndCitiesFetchingActivity;
+import com.example.myapplication.apiResponse.AddressServerResponse;
+import com.example.myapplication.appConstants.AppConstants;
+import com.example.myapplication.repository.DataRepository;
+import com.example.myapplication.utils.SharedPreferenceHelper;
+import com.example.myapplication.views.AddressAndCitiesFetchingActivity;
 
 public class AddressAndCitiesActivityViewModel extends ViewModel {
 

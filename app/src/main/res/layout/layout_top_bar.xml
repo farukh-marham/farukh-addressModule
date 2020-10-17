@@ -23,7 +23,7 @@
             android:paddingRight="@dimen/ten"
             android:src="@drawable/back_vector_icon" />
 
-        <com.example.myapplication.CustomViews.BodyText
+        <com.example.myapplication.customViews.BodyText
             android:id="@+id/heading_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
