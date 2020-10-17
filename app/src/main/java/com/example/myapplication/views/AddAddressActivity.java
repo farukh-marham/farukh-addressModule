@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -45,6 +46,7 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
     private BodyText headingTextview;
     private ProgressBar progressBar;
     private ScrollView scrollView;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
         addAddressActivityViewModel.setOnResponseListener(this);
         getLatAndLong();
         initViews();
-        setlisteners();
+        setListeners();
         setCitiesListSpinner();
         setDataInUserForm(binding);
 
@@ -70,8 +72,9 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    private void setlisteners() {
+    private void setListeners() {
         donebutton.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
     }
 
     private void getLatAndLong() {
@@ -96,6 +99,7 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
         scrollView = findViewById(R.id.scroll_view);
         headingTextview = findViewById(R.id.heading_textview);
         headingTextview.setText(getResources().getString(R.string.tech_bay));
+        backBtn = findViewById(R.id.backBtn);
         addAddressActivityViewModel.citiesList = SharedPreferenceHelper.getInstance().getSharedPreferenceListOfCities(AddAddressActivity.this, AppConstants.CITY_LIST_KEY, new TypeToken<ArrayList<Cities>>() {
         }.getType());
         addAddressActivityViewModel.areaOfCities = SharedPreferenceHelper.getInstance().getSharedPreferenceListOfAreas(AddAddressActivity.this, AppConstants.AREA_LIST_KEY, new TypeToken<ArrayList<AreaOfCities>>() {
@@ -122,7 +126,7 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-
+            //
         }
     };
 
@@ -160,6 +164,10 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
                     setViewsBeforeCallingApi();
                     addAddressActivityViewModel.addUserAddressApi();
                 }
+                break;
+
+            case R.id.backBtn:
+                finish();
                 break;
         }
     }

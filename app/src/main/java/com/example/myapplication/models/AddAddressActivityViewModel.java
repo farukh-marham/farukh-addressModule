@@ -2,11 +2,9 @@ package com.example.myapplication.models;
 
 
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.myapplication.apiResponse.ServerResponse;
 import com.example.myapplication.apiResponse.models.AreaOfCities;
 import com.example.myapplication.apiResponse.models.Cities;
 import com.example.myapplication.apiResponse.models.PostAddress;
@@ -15,8 +13,6 @@ import com.example.myapplication.repository.DataRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Response;
 
 public class AddAddressActivityViewModel extends ViewModel {
 
